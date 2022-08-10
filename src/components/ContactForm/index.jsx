@@ -3,13 +3,14 @@ import Form from 'react-bootstrap/Form';
 import {useFormik} from "formik";
 import * as yup from 'yup';
 import {useNavigate} from 'react-router-dom';
+import RoutesToPages from "../RoutesToPages";
 
 const ContactForm = props => {
 
     const navigate = useNavigate();
 
     const goBack = () => {
-        return navigate('/');
+        return navigate(RoutesToPages.homePage);
     };
 
     const formik = useFormik({

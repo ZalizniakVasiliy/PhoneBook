@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Card from 'react-bootstrap/Card';
+import RoutesToPages from "../../components/RoutesToPages";
 
 const DeleteContact = () => {
     const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const DeleteContact = () => {
 
     const handleDelete = () => {
         dispatch(deleteContact(contactToRemove));
-        navigate('/');
+        navigate(RoutesToPages.homePage);
     };
 
     const redirectToEdit = () => {

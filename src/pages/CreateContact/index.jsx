@@ -6,6 +6,7 @@ import _ from "lodash";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import RoutesToPages from "../../components/RoutesToPages";
 
 const CreateContact = () => {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const CreateContact = () => {
     const submitForm = fieldValues => {
         const id = _.uniqueId();
         dispatch(addContact({...fieldValues, id}));
-        navigate('/');
+        navigate(RoutesToPages.homePage);
     };
 
     return (

@@ -5,6 +5,7 @@ import EditForm from "../../components/EditForm";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import RoutesToPages from "../../components/RoutesToPages";
 
 const ChangeContact = () => {
     const dispatch = useDispatch();
@@ -16,11 +17,11 @@ const ChangeContact = () => {
 
     const submitForm = fieldValues => {
         dispatch(editContact({...fieldValues, id}));
-        navigate('/');
+        navigate(RoutesToPages.homePage);
     };
 
     const deleteContact = () => {
-        navigate('acceptDeleteContact');
+        navigate(RoutesToPages.deleteItem);
     };
 
     return (

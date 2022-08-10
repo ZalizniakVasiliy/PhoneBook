@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import ListGroup from "react-bootstrap/ListGroup";
+import RoutesToPages from "../../components/RoutesToPages";
 
 const PhoneContactList = () => {
     const [searchContact, setSearchContact] = useState('');
@@ -18,7 +19,7 @@ const PhoneContactList = () => {
         .sort((prevContact, nextContact) => prevContact.name > nextContact.name ? 1 : -1);
 
     const createContact = () => {
-        navigate('newContact');
+        navigate(RoutesToPages.addItem);
     };
 
     const handleSearchContact = ({target}) => {
@@ -30,7 +31,7 @@ const PhoneContactList = () => {
     };
 
     const viewContactInfo = contactId => () => {
-        navigate('contactInfo/' + contactId);
+        navigate(RoutesToPages.view + contactId);
     };
 
     const contactsToView = sortedContacts.filter(singleContact => {

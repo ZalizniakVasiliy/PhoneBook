@@ -5,16 +5,17 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from "react-bootstrap/Button";
 import Card from 'react-bootstrap/Card';
+import RoutesToPages from "../../components/RoutesToPages";
 
 const ContactInfo = () => {
     const navigate = useNavigate();
 
     const goBack = () => {
-        return navigate('/');
+        navigate(RoutesToPages.homePage);
     };
 
     const changeCurrentContact = () => {
-        navigate('changeContact');
+        navigate(RoutesToPages.change);
     };
 
     const {id} = useParams();
