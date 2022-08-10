@@ -14,7 +14,7 @@ const ChangeContact = () => {
     const contactToEdit = useSelector(({contactsData}) =>
         contactsData.find(elem => elem.id === id));
 
-    const submitForm = (fieldValues) => {
+    const submitForm = fieldValues => {
         dispatch(editContact({...fieldValues, id}));
         navigate('/');
     };

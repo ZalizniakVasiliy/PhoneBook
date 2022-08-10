@@ -29,7 +29,7 @@ const PhoneContactList = () => {
         setSearchContact('');
     };
 
-    const viewContactInfo = (contactId) => () => {
+    const viewContactInfo = contactId => () => {
         navigate('contactInfo/' + contactId);
     };
 
