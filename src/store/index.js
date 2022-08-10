@@ -4,5 +4,5 @@ import contactReducer from './slices/contact';
 export default configureStore({
     reducer: {
         contactsData: contactReducer,
-    }
+    },
 });

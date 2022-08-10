@@ -29,7 +29,9 @@ const DeleteContact = () => {
             <Row className='d-flex justify-content-center mt-5'>
                 <Col xs={6}>
                     <Card className='text-bg-dark'>
-                        <Card.Header className="text-center text-danger">Do you confirm deleting?</Card.Header>
+                        <Card.Header
+                            className="text-center text-danger fs-4">Do you confirm deletion?
+                        </Card.Header>
                         <Card.Body className="text-start">
                             <Card.Title>{contactToRemove.name}</Card.Title>
                             <Card.Text>
@@ -51,7 +53,7 @@ const DeleteContact = () => {
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
 export default DeleteContact;

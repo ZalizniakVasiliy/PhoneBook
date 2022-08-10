@@ -10,7 +10,7 @@ const ContactForm = (props) => {
 
     const goBack = () => {
         return navigate('/');
-    }
+    };
 
     const formik = useFormik({
         initialValues: {
@@ -29,14 +29,15 @@ const ContactForm = (props) => {
             props.handleSubmitContact(values);
             resetForm();
         },
-    })
+    });
 
     return (
-        <Form onSubmit={formik.handleSubmit} className='rounded-3 text-bg-dark p-3'>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form onSubmit={formik.handleSubmit}
+              className='rounded-3 text-bg-dark p-3'>
+            <Form.Group className="mb-3"
+                        controlId="exampleForm.ControlInput1">
                 <Form.Label>Type a name</Form.Label>
                 <Form.Control
-                    name='name'
                     type="text"
                     placeholder="Name ..."
                     autoFocus
@@ -44,22 +45,20 @@ const ContactForm = (props) => {
                 {formik.touched.name && formik.errors.name ? (
                     <div>{formik.errors.name}</div>) : null}
             </Form.Group>
-
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3"
+                        controlId="exampleForm.ControlInput2">
                 <Form.Label>Type a phone number</Form.Label>
                 <Form.Control
-                    name='phoneNumber'
                     type="text"
                     placeholder="Phone number ..."
                     {...formik.getFieldProps('phoneNumber')}/>
                 {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
                     <div>{formik.errors.phoneNumber}</div>) : null}
             </Form.Group>
-
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Group className="mb-3"
+                        controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Type a position</Form.Label>
                 <Form.Control
-                    name='position'
                     as="textarea"
                     rows={3}
                     placeholder='Position ...'
@@ -67,17 +66,16 @@ const ContactForm = (props) => {
                 {formik.touched.position && formik.errors.position ? (
                     <div>{formik.errors.position}</div>) : null}
             </Form.Group>
-
             <div className='d-flex justify-content-between'>
-                <Button variant="outline-success"
-                        type='submit'>Create
-                </Button>
                 <Button variant="outline-warning"
                         onClick={goBack}>Cancel
                 </Button>
+                <Button variant="outline-success"
+                        type='submit'>Create
+                </Button>
             </div>
         </Form>
-    )
-}
+    );
+};
 
 export default ContactForm;

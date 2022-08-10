@@ -26,8 +26,8 @@ const ChangeContact = () => {
     return (
         <Container>
             <Row className='d-flex justify-content-center mt-5'>
-                <Col xs={6} className='bg-black rounded-3'>
-                    <h1 className='d-flex justify-content-center mb-3 text-success'>Change Contact</h1>
+                <Col xs={6} className='bg-black rounded-3 p-2'>
+                    <h1 className='d-flex justify-content-center mb-2 text-success'>Change Contact</h1>
                     <EditForm
                         currentItem={contactToEdit}
                         handleSubmitContact={submitForm}

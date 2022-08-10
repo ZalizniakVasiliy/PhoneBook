@@ -6,7 +6,7 @@ import ContactInfo from "./pages/ContactInfo";
 import ChangeContact from "./pages/ChangeContact";
 import DeleteContact from "./pages/DeleteContact";
 
-function App() {
+const App = () => {
     return (
         <div className="App">
             <Routes>
@@ -14,7 +14,9 @@ function App() {
                 <Route path='newContact' element={<CreateContact/>}/>
                 <Route path='contactInfo/:id' element={<ContactInfo/>}/>
                 <Route path='contactInfo/:id/changeContact' element={<ChangeContact/>}/>
-                <Route path='contactInfo/:id/changeContact/acceptDeleteContact' element={<DeleteContact/>}/>
+                <Route
+                    path='contactInfo/:id/changeContact/acceptDeleteContact'
+                    element={<DeleteContact/>}/>
             </Routes>
         </div>
     );

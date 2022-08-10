@@ -11,11 +11,11 @@ const ContactInfo = () => {
 
     const goBack = () => {
         return navigate('/');
-    }
+    };
 
     const changeCurrentContact = () => {
         navigate('changeContact');
-    }
+    };
 
     const {id} = useParams();
     const currentContact = useSelector(({contactsData}) =>
@@ -28,14 +28,14 @@ const ContactInfo = () => {
                 <Col xs={6}>
                     <Card className="text-start bg-black">
                         <Card.Header
-                            className='d-flex justify-content-between align-items-baseline text-success fs-4'>
+                            className='d-flex justify-content-between align-items-end text-success fs-4'>
                             Contact Info
                             <Button
                                 variant="outline-success"
                                 onClick={changeCurrentContact}>Change
                             </Button>
                         </Card.Header>
-                        <hr className='text-bg-primary'/>
+                        <hr className='m-0 text-bg-primary'/>
                         <Card.Body className='text-start text-light'>
                             <Card.Title>{currentContact.name}</Card.Title>
                             <hr/>
@@ -43,7 +43,7 @@ const ContactInfo = () => {
                             <hr/>
                             <Card.Title>{currentContact.position}</Card.Title>
                         </Card.Body>
-                        <hr className='text-bg-primary'/>
+                        <hr className='m-0 text-bg-primary'/>
                         <Card.Footer className="text-end">
                             <Button variant="outline-warning"
                                     onClick={goBack}>Cancel
@@ -53,7 +53,7 @@ const ContactInfo = () => {
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
 export default ContactInfo;

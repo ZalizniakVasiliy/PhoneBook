@@ -11,22 +11,21 @@ const CreateContact = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const submitForm = (fieldValues) => {
+    const submitForm = fieldValues => {
         const id = _.uniqueId();
         dispatch(addContact({...fieldValues, id}));
         navigate('/');
-    }
+    };
 
     return (
         <Container>
             <Row className='d-flex justify-content-center mt-5'>
                 <Col xs={6}>
-                    <ContactForm
-                        handleSubmitContact={submitForm}/>
+                    <ContactForm handleSubmitContact={submitForm}/>
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
 export default CreateContact;

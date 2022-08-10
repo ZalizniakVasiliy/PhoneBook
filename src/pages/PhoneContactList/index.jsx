@@ -12,9 +12,9 @@ import ListGroup from "react-bootstrap/ListGroup";
 const PhoneContactList = () => {
     const [searchContact, setSearchContact] = useState('');
     const navigate = useNavigate();
-    let allContacts = useSelector(({contactsData}) => contactsData);
+    const allContacts = useSelector(({contactsData}) => contactsData);
 
-    let sortedContacts = [...allContacts]
+    const sortedContacts = [...allContacts]
         .sort((prevContact, nextContact) => prevContact.name > nextContact.name ? 1 : -1);
 
     const createContact = () => {
@@ -33,7 +33,7 @@ const PhoneContactList = () => {
         navigate('contactInfo/' + contactId);
     };
 
-    const getSearchingContacts = sortedContacts.filter(singleContact => {
+    const contactsToView = sortedContacts.filter(singleContact => {
         if (singleContact.name.toLowerCase().includes(searchContact.toLowerCase())
             ||
             singleContact.phoneNumber.includes(searchContact)) {
@@ -43,8 +43,8 @@ const PhoneContactList = () => {
 
     const renderContacts = () => {
         return (
-            <ListGroup className='mt-2 mb-2 fs-6 bg-success'>
-                {getSearchingContacts.map(elem => (
+            <ListGroup className='mt-2 fs-6 bg-success'>
+                {contactsToView.map(elem => (
                     <ListGroup.Item variant='success'
                                     key={elem.id}
                                     onClick={viewContactInfo(elem.id)}>
@@ -52,39 +52,37 @@ const PhoneContactList = () => {
                     </ListGroup.Item>
                 ))}
             </ListGroup>
-        )
+        );
     };
 
     return (
-        <>
-            <Container>
-                <Row className='d-flex justify-content-center'>
-                    <Col xs={6} className='mt-5 bg-black rounded-3'>
-                        <h1 className='text-center mb-3  text-success'>Phone Book</h1>
-                        <InputGroup>
-                            <Button variant="danger"
-                                    id="button-addon1"
-                                    onClick={handleResetSearchContact}
-                                    disabled={!searchContact}>Cancel
-                            </Button>
-                            <Form.Control
-                                placeholder='Search contact'
-                                disabled={allContacts.length === 0}
-                                value={searchContact}
-                                onChange={handleSearchContact}
-                            />
-                            <Button variant="outline-success"
-                                    id="button-addon1"
-                                    onClick={createContact}>New contact
-                            </Button>
-                        </InputGroup>
-                        {allContacts.length > 0 ? renderContacts()
-                            : <p className='mt-2 text-end text-danger fs-4'>Contacts aren't found</p>}
-                    </Col>
-                </Row>
-            </Container>
-        </>
-    )
-}
+        <Container>
+            <Row className='d-flex justify-content-center'>
+                <Col xs={6} className='mt-5 p-2 bg-black rounded-3'>
+                    <h1 className='text-center mb-2 text-success'>Phone Book</h1>
+                    <InputGroup>
+                        <Button variant="danger"
+                                id="button-addon1"
+                                onClick={handleResetSearchContact}
+                                disabled={!searchContact}>Cancel
+                        </Button>
+                        <Form.Control
+                            placeholder='Search contact'
+                            disabled={sortedContacts.length === 0}
+                            value={searchContact}
+                            onChange={handleSearchContact}
+                        />
+                        <Button variant="outline-success"
+                                id="button-addon1"
+                                onClick={createContact}>New contact
+                        </Button>
+                    </InputGroup>
+                    {sortedContacts.length > 0 ? renderContacts()
+                        : <p className='mt-2 text-center text-danger fs-4'>Contacts aren't found</p>}
+                </Col>
+            </Row>
+        </Container>
+    );
+};
 
 export default PhoneContactList;
