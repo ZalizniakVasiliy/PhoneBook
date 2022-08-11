@@ -18,6 +18,13 @@ export const contactSlice = createSlice({
 
         editContact: (state, {payload}) => {
             const {firstName, lastName, phoneNumber, position, id} = payload;
+            state.forEach(contact => {
+                if ((firstName === contact.firstName && lastName === contact.lastName) ||
+                    (phoneNumber === contact.phoneNumber)) {
+                    alert(`The contact with a such unique data has already created`);
+                    throw new Error('The contact with a such unique data has already created');
+                }
+            });
             const currentContact = state.find(currentElem => currentElem.id === id);
             currentContact.firstName = firstName;
             currentContact.lastName = lastName;
