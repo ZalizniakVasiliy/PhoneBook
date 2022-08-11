@@ -14,7 +14,8 @@ const PhoneContactList = () => {
     const allContacts = useSelector(({contactsData}) => contactsData);
 
     const sortedContacts = [...allContacts]
-        .sort((prevContact, nextContact) => prevContact.name > nextContact.name ? 1 : -1);
+        .sort((prevContact, nextContact) =>
+            prevContact.firstName > nextContact.firstName ? 1 : -1);
 
     const createContact = () => {
         navigate(RoutesToPages.addItem);
@@ -33,10 +34,12 @@ const PhoneContactList = () => {
     };
 
     const contactsToView = sortedContacts.filter(singleContact => {
-        if (singleContact.name.toLowerCase().includes(searchContact.toLowerCase())
+        if (singleContact.firstName.toLowerCase().includes(searchContact.toLowerCase())
+            ||
+            singleContact.lastName.toLowerCase().includes(searchContact.toLowerCase())
             ||
             singleContact.phoneNumber.includes(searchContact)) {
-            return singleContact.name;
+            return `${singleContact.firstName} ${singleContact.lastName}`;
         }
     });
 
@@ -47,7 +50,7 @@ const PhoneContactList = () => {
                     <ListGroup.Item variant='success'
                                     key={elem.id}
                                     onClick={viewContactInfo(elem.id)}>
-                        {elem.name}
+                        {elem.firstName} {elem.lastName}
                     </ListGroup.Item>
                 ))}
             </ListGroup>

@@ -8,7 +8,7 @@ const ContactCardToDelete = props => {
                 className="text-center text-danger fs-4">Do you confirm deletion?
             </Card.Header>
             <Card.Body className="text-start">
-                <Card.Title>{props.contactToRemove.name}</Card.Title>
+                <Card.Title>{props.contactToRemove.firstName} {props.contactToRemove.lastName}</Card.Title>
                 <Card.Text>
                     {props.contactToRemove.phoneNumber}
                 </Card.Text>

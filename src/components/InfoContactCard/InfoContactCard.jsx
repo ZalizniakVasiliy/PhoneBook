@@ -14,7 +14,7 @@ const InfoContactCard = props => {
             </Card.Header>
             <hr className='m-0 text-bg-primary'/>
             <Card.Body className='text-start text-light'>
-                <Card.Title>{props.currentContact.name}</Card.Title>
+                <Card.Title>{props.currentContact.firstName} {props.currentContact.lastName}</Card.Title>
                 <hr/>
                 <Card.Title>{props.currentContact.phoneNumber}</Card.Title>
                 <hr/>

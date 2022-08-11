@@ -9,9 +9,10 @@ export const contactSlice = createSlice({
         },
 
         editContact: (state, {payload}) => {
-            const {name, phoneNumber, position, id} = payload;
+            const {firstName, lastName, phoneNumber, position, id} = payload;
             const currentContact = state.find(currentElem => currentElem.id === id);
-            currentContact.name = name;
+            currentContact.firstName = firstName;
+            currentContact.lastName = lastName;
             currentContact.phoneNumber = phoneNumber;
             currentContact.position = position;
         },

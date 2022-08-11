@@ -15,13 +15,15 @@ const ContactForm = props => {
 
     const formik = useFormik({
         initialValues: {
-            name: '',
+            firstName: '',
+            lastName: '',
             phoneNumber: '',
             position: '',
         },
 
         validationSchema: yup.object({
-            name: yup.string().trim().required('Required to fill'),
+            firstName: yup.string().trim().required('Required to fill'),
+            lastName: yup.string().trim().required('Required to fill'),
             phoneNumber: yup.number().required('Required to fill').positive().integer(),
             position: yup.string().trim().required('Required to fill'),
         }),
@@ -37,17 +39,27 @@ const ContactForm = props => {
               className='rounded-3 text-bg-dark p-3'>
             <Form.Group className="mb-3"
                         controlId="exampleForm.ControlInput1">
-                <Form.Label>Type a name</Form.Label>
+                <Form.Label>Type a first name</Form.Label>
                 <Form.Control
                     type="text"
-                    placeholder="Name ..."
+                    placeholder="First name ..."
                     autoFocus
-                    {...formik.getFieldProps('name')}/>
-                {formik.touched.name && formik.errors.name ? (
-                    <div>{formik.errors.name}</div>) : null}
+                    {...formik.getFieldProps('firstName')}/>
+                {formik.touched.firstName && formik.errors.firstName ? (
+                    <div>{formik.errors.firstName}</div>) : null}
             </Form.Group>
             <Form.Group className="mb-3"
                         controlId="exampleForm.ControlInput2">
+                <Form.Label>Type a last name</Form.Label>
+                <Form.Control
+                    type="text"
+                    placeholder="Last name ..."
+                    {...formik.getFieldProps('lastName')}/>
+                {formik.touched.lastName && formik.errors.lastName ? (
+                    <div>{formik.errors.lastName}</div>) : null}
+            </Form.Group>
+            <Form.Group className="mb-3"
+                        controlId="exampleForm.ControlInput3">
                 <Form.Label>Type a phone number</Form.Label>
                 <Form.Control
                     type="text"
