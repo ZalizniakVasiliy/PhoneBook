@@ -5,6 +5,14 @@ export const contactSlice = createSlice({
     initialState: [],
     reducers: {
         addContact: (state, {payload}) => {
+            const {firstName, lastName, phoneNumber} = payload;
+            state.forEach(contact => {
+                if ((firstName === contact.firstName && lastName === contact.lastName) ||
+                    (phoneNumber === contact.phoneNumber)) {
+                    alert(`The contact with a such unique data has already created`);
+                    throw new Error('The contact with a such unique data has already created');
+                }
+            });
             state.push(payload);
         },
 

@@ -34,9 +34,11 @@ const PhoneContactList = () => {
     };
 
     const contactsToView = sortedContacts.filter(singleContact => {
-        if (singleContact.firstName.toLowerCase().includes(searchContact.toLowerCase())
+        if (singleContact.firstName.concat(singleContact.lastName)
+                .toLowerCase().includes(searchContact.toLowerCase())
             ||
-            singleContact.lastName.toLowerCase().includes(searchContact.toLowerCase())
+            singleContact.firstName.concat(' ').concat(singleContact.lastName)
+                .toLowerCase().includes(searchContact.toLowerCase())
             ||
             singleContact.phoneNumber.includes(searchContact)) {
             return `${singleContact.firstName} ${singleContact.lastName}`;
