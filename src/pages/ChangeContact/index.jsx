@@ -36,7 +36,7 @@ const ChangeContact = () => {
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
 export default ChangeContact;
