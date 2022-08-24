@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import RoutesToPages from "../../components/RoutesToPages";
-import ContactCardToDelete from "../../components/ContactCardToDelete/ContactCardToDelete";
+import ContactCardToDelete from "../../components/ContactCardToDelete";
 
 const DeleteContact = () => {
     const dispatch = useDispatch();

@@ -16,7 +16,7 @@ const ContactCardToDelete = props => {
                     {props.contactToRemove.position}
                 </Card.Text>
             </Card.Body>
-            <Card.Footer className="text-muted d-flex justify-content-between">
+            <Card.Footer className="d-flex justify-content-between">
                 <Button variant="outline-warning"
                         onClick={props.redirectToEdit}>Cancel
                 </Button>

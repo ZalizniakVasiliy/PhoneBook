@@ -7,7 +7,9 @@ export const contactSlice = createSlice({
         addContact: (state, {payload}) => {
             const {firstName, lastName, phoneNumber} = payload;
             state.forEach(contact => {
-                if ((firstName === contact.firstName && lastName === contact.lastName) ||
+                if ((firstName.toLowerCase() === contact.firstName.toLowerCase()
+                        && lastName.toLowerCase() === contact.lastName.toLowerCase())
+                    ||
                     (phoneNumber === contact.phoneNumber)) {
                     alert(`The contact with a such unique data has already created`);
                     throw new Error('The contact with a such unique data has already created');
@@ -22,7 +24,9 @@ export const contactSlice = createSlice({
             const anotherContacts = state.filter(contact => contact.id !== id);
 
             anotherContacts.forEach(contact => {
-                if ((firstName === contact.firstName && lastName === contact.lastName) ||
+                if ((firstName.toLowerCase() === contact.firstName.toLowerCase()
+                        && lastName.toLowerCase() === contact.lastName.toLowerCase())
+                    ||
                     (phoneNumber === contact.phoneNumber)) {
                     alert(`The contact with a such unique data has already created`);
                     throw new Error('The contact with a such unique data has already created');

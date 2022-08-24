@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from "react-bootstrap/ListGroup";
 import RoutesToPages from "../../components/RoutesToPages";
-import ContactListInput from "../../components/ContactListInput/ContactListInput";
+import ContactListInput from "../../components/ContactListInput";
 
 const PhoneContactList = () => {
     const [searchContact, setSearchContact] = useState('');
